@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+venv_tf/
+*.pyc
+*.pyo
+*.pyd
+"venv/" 
+"venv_tf/" 
+"__pycache__" 
+"*.pyc" 
+"*.pyo" 
+"*.pyd" 
