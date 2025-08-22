@@ -7,15 +7,23 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # Load model & tokenizer & label encoder
 @st.cache_resource
-model = tf.keras.models.load_model("lstm_model_20000.h5")
+def load_model():
+    model = tf.keras.models.load_model("lstm_model_20000.h5")
 
 @st.cache_resource
-with open("tokenizer_20000.pkl", "rb") as f:
-    tokenizer = pickle.load(f)
+def load_tokenizer():
+    with open("tokenizer_20000.pkl", "rb") as f:
+        tokenizer = pickle.load(f)
 
 @st.cache_resource
-with open("label_encoder_20000.pkl", "rb") as f:
-    label_encoder = pickle.load(f)
+def load_label_encoder():
+    with open("label_encoder_20000.pkl", "rb") as f:
+        label_encoder = pickle.load(f)
+
+# Load resources
+model = load_model()
+tokenizer = load_tokenizer()
+label_encoder = load_label_encoder()
 
 MAX_LEN = 30
 
