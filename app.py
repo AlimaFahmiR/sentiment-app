@@ -8,17 +8,20 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 # Load model & tokenizer & label encoder
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("lstm_model_20000.h5")
+    model = tf.keras.models.load_model("lstm_model_20000.h5", compile=False)
+    return model
 
 @st.cache_resource
 def load_tokenizer():
     with open("tokenizer_20000.pkl", "rb") as f:
         tokenizer = pickle.load(f)
+    return tokenizer
 
 @st.cache_resource
 def load_label_encoder():
     with open("label_encoder_20000.pkl", "rb") as f:
         label_encoder = pickle.load(f)
+    return label_encoder
 
 # Load resources
 model = load_model()
@@ -28,7 +31,7 @@ label_encoder = load_label_encoder()
 MAX_LEN = 30
 
 # Judul aplikasi
-st.title("📱 Sentiment Analysis Debug")
+st.title("📱 Sentiment Analysis")
 
 # Input teks
 user_input = st.text_area("Enter your review")
@@ -45,7 +48,6 @@ if st.button("Predict"):
 
         preprocessed_text = ' '.join(tokens)
 
-        st.write("Review:", preprocessed_text)
         st.subheader(f"✅ Hasil Prediksi: {pred_label}")
 
     else:
