@@ -3,3 +3,4 @@ pandas==2.2.2
 scikit-learn==1.5.1
 tensorflow==2.16.1
 streamlit==1.36.0
+Sastrawi==1.0.1
