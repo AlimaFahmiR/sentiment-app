@@ -1,6 +1,5 @@
-numpy==1.24.0
+numpy==1.25.0
 pandas==2.3.2
-scikit-learn==1.7.1
+scikit-learn==1.3.2
 tensorflow==2.14.0
-streamlit==1.48.1
-matplotlib==3.10.5
+streamlit==1.28.2
